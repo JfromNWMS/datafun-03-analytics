@@ -137,15 +137,19 @@
 # Uncomment needed packages below and add more as required for the project.
 
 # Up-to-date package management tools
-pip
-setuptools
-wheel
+# pip
+# setuptools
+# wheel
 
 # Easy logging for monitoring code execution
-loguru
+# loguru
 
 # HTTP requests made simple
-# requests
+requests
+
+# Primary library for Excel (both .xls and .xlsx); handles formulas, charts, formatting (~8 MB)
+# Used by pandas and other libraries.
+# openpyxl
 
 # Environment variables management
 # python-dotenv
@@ -154,7 +158,7 @@ loguru
 # TEXT-TO-SPEECH
 # ======================================================
 # Offline text-to-speech library for Python (1-15 MB)
-pyttsx3  
+#pyttsx3  
 
 # ======================================================
 # JUPYTERLAB + NOTEBOOK SUPPORT
@@ -178,10 +182,6 @@ pyttsx3
 # ======================================================
 # EXCEL FILE READING AND WRITING
 # ======================================================
-
-# Primary library for Excel (both .xls and .xlsx); handles formulas, charts, formatting (~8 MB)
-# Used by pandas and other libraries.
-# openpyxl
 
 # For writing advanced Excel files (.xlsx)
 # xlsxwriter

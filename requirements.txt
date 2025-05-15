@@ -144,7 +144,7 @@
 # Easy logging for monitoring code execution
 # loguru
 
-# HTTP requests made simple
+# HTTP requests made simple #
 requests
 
 # Primary library for Excel (both .xls and .xlsx); handles formulas, charts, formatting (~8 MB)

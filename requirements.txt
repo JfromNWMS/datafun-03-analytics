@@ -142,15 +142,19 @@
 # wheel
 
 # Easy logging for monitoring code execution
-# loguru
+loguru
 
 # HTTP requests made simple #
 requests
 
 # Primary library for Excel (both .xls and .xlsx); handles formulas, charts, formatting (~8 MB)
 # Used by pandas and other libraries.
-# openpyxl
+openpyxl
+pandas
 
+# Primary library for data analysis. 
+# Try pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128 with your version of cuda if torch.cuda.is_available() returns false.
+torch
 # Environment variables management
 # python-dotenv
 

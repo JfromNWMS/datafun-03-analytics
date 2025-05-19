@@ -39,7 +39,7 @@ PROCESSED_DIR: str = "processed_data"
 #####################################
 
 def principal_component_analysis(file_path: pathlib.Path) -> tuple:
-    """Analyze the Ladder score column to calculate min, max, mean, and stdev."""
+    """Find the eigenvectors and corresponding eigenvalues for Pearson correlation coefficient matrix"""
     try:
         data = read_csv(file_path, index_col=0, usecols=lambda x: x != 'Regional indicator')
         gpu_or_cpu = device('cuda' if cuda.is_available() else 'cpu')
@@ -60,32 +60,25 @@ def principal_component_analysis(file_path: pathlib.Path) -> tuple:
         logger.error(f"Error processing CSV file: {e}")
 
 def process_csv_file():
-    """Read a CSV file, analyze Ladder score, and save the results."""
+    """Read a CSV file, run principal_component_analysis by country, and save the results."""
     
-    # TODO: Replace with path to your CSV data file
     input_file = pathlib.Path(FETCHED_DATA_DIR, "2020_happiness.csv")
-    
-    # TODO: Replace with path to your CSV processed file
     output_txt = pathlib.Path(PROCESSED_DIR, "happiness_eigen_summary.txt")
     output_csv = pathlib.Path(PROCESSED_DIR, "happiness_eigen_info.csv")
     
-    # TODO: Call your new function to process YOUR CSV file
-    # TODO: Create a new local variable to store the result of the function call
     eigen_info, gpu_or_cpu = principal_component_analysis(input_file)
 
-    # Create the output directory if it doesn't exist
     output_txt.parent.mkdir(parents=True, exist_ok=True)
     
-    # Open the output file in write mode and write the results
     with output_txt.open('w') as file:
 
         file.write(f"{input_file} eigen summary with device: {gpu_or_cpu}\n")
-        file.write(f"Least 5 eigenvalues: {", ".join(f'{x:.5e}' for x in eigen_info.iloc[0,:5])}\n")
+        file.write(f"Least 5 eigenvalues:    {", ".join(f'{x:.5e}' for x in eigen_info.iloc[0,:5])}\n")
         file.write(f"Greatest 5 eigenvalues: {", ".join(f'{x:.5e}' for x in eigen_info.iloc[0,-5:])}\n")
 
-    # Writes eigen_info to CSV.
+    # Pandas .to_csv() writes eigen_info to CSV.
     eigen_info.to_csv(output_csv, header=False, index=False)
-    # Log the processing of the CSV file
+    
     logger.info(f"Processed CSV file: {input_file}, summary saved to: {output_txt} and eigen info save to: {output_csv}")
 
 #####################################

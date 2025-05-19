@@ -1,0 +1,20 @@
+2025-05-18 19:39:23.533 | INFO     | utils_logger:<module>:41 - Logging to file: logs\project_log.log
+2025-05-18 19:39:23.534 | INFO     | __main__:<module>:96 - Starting CSV processing...
+2025-05-18 19:39:23.793 | INFO     | __main__:process_csv_file:89 - Processed CSV file: data\2020_happiness.csv, summary saved to: processed_data\happiness_eigen_summary.txt and eigen info save to: processed_data\happiness_eigen_info.csv
+2025-05-18 19:39:23.794 | INFO     | __main__:<module>:98 - CSV processing complete.
+2025-05-18 19:40:29.320 | INFO     | utils_logger:<module>:41 - Logging to file: logs\project_log.log
+2025-05-18 19:40:29.329 | INFO     | __main__:<module>:96 - Starting CSV processing...
+2025-05-18 19:40:29.558 | INFO     | __main__:process_csv_file:89 - Processed CSV file: data\2020_happiness.csv, summary saved to: processed_data\happiness_eigen_summary.txt and eigen info save to: processed_data\happiness_eigen_info.csv
+2025-05-18 19:40:29.558 | INFO     | __main__:<module>:98 - CSV processing complete.
+2025-05-18 20:31:10.913 | INFO     | utils_logger:<module>:41 - Logging to file: logs\project_log.log
+2025-05-18 20:31:10.914 | INFO     | __main__:<module>:89 - Starting CSV processing...
+2025-05-18 20:31:11.166 | INFO     | __main__:process_csv_file:82 - Processed CSV file: data\2020_happiness.csv, summary saved to: processed_data\happiness_eigen_summary.txt and eigen info save to: processed_data\happiness_eigen_info.csv
+2025-05-18 20:31:11.167 | INFO     | __main__:<module>:91 - CSV processing complete.
+2025-05-18 20:31:39.470 | INFO     | utils_logger:<module>:41 - Logging to file: logs\project_log.log
+2025-05-18 20:31:39.471 | INFO     | __main__:<module>:89 - Starting CSV processing...
+2025-05-18 20:31:39.711 | INFO     | __main__:process_csv_file:82 - Processed CSV file: data\2020_happiness.csv, summary saved to: processed_data\happiness_eigen_summary.txt and eigen info save to: processed_data\happiness_eigen_info.csv
+2025-05-18 20:31:39.711 | INFO     | __main__:<module>:91 - CSV processing complete.
+2025-05-18 20:45:31.436 | INFO     | utils_logger:<module>:41 - Logging to file: logs\project_log.log
+2025-05-18 20:45:31.436 | INFO     | __main__:<module>:88 - Starting JSON processing...
+2025-05-18 20:45:31.450 | INFO     | __main__:process_json_file:81 - Processed JSON file: data\astros.json, Results saved to: processed_data\json_astronauts_by_craft.txt
+2025-05-18 20:45:31.451 | INFO     | __main__:<module>:90 - JSON processing complete.

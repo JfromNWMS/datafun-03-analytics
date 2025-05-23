@@ -1,5 +1,5 @@
 """
-Process a CSV file on 2020 Happiness ratings by country to analyze the `Ladder score` column and save statistics.
+Process a CSV file on 2020 Happiness ratings by country to retrieve eigenvalues and eigenvectors of Pearson correlation coefficient matrix and write them to a csv and writing summary to a text file.
 """
 
 #####################################
@@ -15,7 +15,7 @@ from torch import device
 from torch import tensor
 from torch import corrcoef
 from torch import linalg
-from torch import cuda
+from torch.cuda import is_available
 
 from pandas import concat
 from pandas import read_csv
@@ -38,11 +38,11 @@ PROCESSED_DIR: str = "processed_data"
 # Define Functions
 #####################################
 
-def principal_component_analysis(file_path: pathlib.Path) -> tuple:
+def pearson_eigen_info(file_path: pathlib.Path) -> tuple:
     """Find the eigenvectors and corresponding eigenvalues for Pearson correlation coefficient matrix"""
     try:
         data = read_csv(file_path, index_col=0, usecols=lambda x: x != 'Regional indicator')
-        gpu_or_cpu = device('cuda' if cuda.is_available() else 'cpu')
+        gpu_or_cpu = device('cuda' if is_available() else 'cpu')
         # torch.tensor() creates tensor from rows of pandas dataframe and is allocated
         # to GPU memory if cuda is available.
         data_tensor = tensor(data.values).to(gpu_or_cpu)
@@ -60,13 +60,13 @@ def principal_component_analysis(file_path: pathlib.Path) -> tuple:
         logger.error(f"Error processing CSV file: {e}")
 
 def process_csv_file():
-    """Read a CSV file, run principal_component_analysis by country, and save the results."""
+    """Read a CSV file, run pearson_eigen_info by country, and save the results."""
     
     input_file = pathlib.Path(FETCHED_DATA_DIR, "2020_happiness.csv")
     output_txt = pathlib.Path(PROCESSED_DIR, "happiness_eigen_summary.txt")
     output_csv = pathlib.Path(PROCESSED_DIR, "happiness_eigen_info.csv")
     
-    eigen_info, gpu_or_cpu = principal_component_analysis(input_file)
+    eigen_info, gpu_or_cpu = pearson_eigen_info(input_file)
 
     output_txt.parent.mkdir(parents=True, exist_ok=True)
     

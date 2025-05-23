@@ -1,5 +1,5 @@
 """
-Process an Excel file to count occurrences of a specific word in a column.
+Process an Excel file to count rows where a specific word occurs.
 
 """
 
@@ -31,7 +31,7 @@ PROCESSED_DIR: str = "processed_data"
 # Define Functions
 #####################################
 
-def count_word_in_column(file_path: pathlib.Path, word: str) -> int:
+def count_rows_with_word(file_path: pathlib.Path, word: str) -> int:
     """Count the occurrences of a specific word in a given column of an Excel file."""
     try:
         workbook = openpyxl.load_workbook(file_path)
@@ -54,7 +54,7 @@ def process_excel_file():
     output_file = pathlib.Path(PROCESSED_DIR, "excel_feedback_github_count.txt")
 
     word_to_count = "GitHub"
-    word_count = count_word_in_column(input_file, word_to_count)
+    word_count = count_rows_with_word(input_file, word_to_count)
     
     # Write the results to the output file    
     output_file.parent.mkdir(parents=True, exist_ok=True)

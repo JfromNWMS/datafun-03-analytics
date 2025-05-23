@@ -153,10 +153,11 @@ openpyxl
 pandas
 
 # Primary library for data analysis. 
-# Try pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128 
+# Try:  "PS> pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128" 
 # with your version of cuda if torch.cuda.is_available() returns false
-# nvcc --version in powershell returns cuda version
+# "PS> nvcc --version" in powershell returns cuda version
 torch
+
 # Environment variables management
 # python-dotenv
 
